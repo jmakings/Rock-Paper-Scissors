@@ -92,7 +92,7 @@ function game(rounds) {
     }
 }
 
-// Get input from user to play the game
+// Get input from user, then play the game
 let roundSelect = parseInt(prompt('How many rounds of Rock, Paper, Scissors would you like to play?', 
 5))
 game(roundSelect)
