@@ -46,6 +46,7 @@ function game(rounds) {
     let compW = 0
     let draw = 0
 
+    // get results from a series of games
     for (let i = 0; i < rounds; i++) {
         let compSelect = getComputerChoice()
         let playSelect = prompt("Input Rock, Paper, or Scissors", "Rock")
@@ -62,16 +63,36 @@ function game(rounds) {
             draw = draw + 1
         }
     }
+
+    // Output appropriate grammar depending on number of wins, losses, and draws
+    let playerStr = playW + ' wins, '
+    let compStr = compW + ' losses, and '
+    let drawStr = draw + ' draws.'
+    if (playW == 1) {
+        playerStr = playW + ' win, '
+    }
+    if (compW == 1) {
+        compStr = compW + ' loss, and '
+    }
+    if (draw == 1) {
+        drawStr = draw + ' draw.'
+    }
+
     if (playW > compW) {
-        console.log('You WIN the game!! The final tally was ' + playW + ' wins, ' + 
-        compW + ' losses, and ' + draw + ' draws.')
+        console.log('You WIN the game!! The final tally was ' + playerStr + 
+        compStr + drawStr)
     }
     else if (playW < compW) {
-        console.log('You LOSE the game!! The final tally was ' + playW + ' wins, ' + 
-        compW + ' losses, and ' + draw + ' draws.')
+        console.log('You LOSE the game!! The final tally was ' + playerStr + 
+        compStr + drawStr)
     }
     else {
-        console.log('The game is a DRAW!! The final tally was ' + playW + ' wins, ' + 
-        compW + ' losses, and ' + draw + ' draws.')
+        console.log('The game is a DRAW!! The final tally was ' + playerStr + 
+        compStr + drawStr)
     }
 }
+
+// Get input from user to play the game
+let roundSelect = parseInt(prompt('How many rounds of Rock, Paper, Scissors would you like to play?', 
+5))
+game(roundSelect)
